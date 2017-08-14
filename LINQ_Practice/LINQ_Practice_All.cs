@@ -31,6 +31,7 @@ namespace LINQ_Practice
         public void DoAllCohortsHaveTwoOrMoreJuniorInstructors()
         {
             var doAll = PracticeData/*FILL IN LINQ EXPRESSION*/;
+
             Assert.IsTrue(false); //<-- change false to doAll
         }
 
