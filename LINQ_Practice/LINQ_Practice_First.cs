@@ -60,7 +60,7 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetFirstCohortWithInstructorNamedZeldaOrNull()
         {
-            var ActualCohort = PracticeData.First(c => c.PrimaryInstructor.FirstName == "Zelda" || c.PrimaryInstructor.FirstName == null);
+            var ActualCohort = PracticeData.FirstOrDefault(c => c.PrimaryInstructor.FirstName == "Zelda" || c.PrimaryInstructor.FirstName == null);
             Assert.IsNull(ActualCohort);
         }
 
@@ -68,13 +68,13 @@ namespace LINQ_Practice
         [ExpectedException(typeof(System.InvalidOperationException))]
         public void GetFirstCohortThatIsBothNotActiveAndNotFullTimeOrThrowException()
         {
-            var shouldThrowException = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var shouldThrowException = PracticeData.First(c => c.Active == false && c.FullTime == false);
         }
 
         [TestMethod]
         public void GetFirstCohortWith2JuniorInstructors()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.First(c => c.JuniorInstructors.Count == 2);
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort1);
         }
 
